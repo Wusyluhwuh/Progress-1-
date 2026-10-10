@@ -5,7 +5,7 @@ try:
         for line in file:
             tasks.append(line.strip())
 except FileNotFoundError:
-    pass  #File will be created automatically when saving. Lowkey ion undertsand ts that much
+    pass  #File'll be created automatically when saving. Lowkey ion undertsand ts that much.
 
 while True:
     print('--- TO-DO LIST ---')
@@ -16,7 +16,7 @@ while True:
     else:
         number = 1
         for task in tasks:
-            print(str(number) + '. ' + task)
+            print(f'{str(number)}. {task}')
             number = number + 1
 
     #menu options
@@ -25,22 +25,22 @@ while True:
     print('2. Delete a task')
     print('3. Quit')
 
-    choice = input('Enter 1, 2, or 3: ')
+    choice = input('Enter 1, 2 or 3: ')
 
     #Add task
     if choice == '1':
-        new_task = input('Type your task: ')
+        new_task = input('What task?: ')
         tasks.append(new_task)
-        print("Task added!")
+        print("Task added.")
 
     #Del task
     elif choice == '2':
-        task_num = input('Enter the number of the task to delete: ')
+        task_num = input('Which task to delete?(number): ')
         if task_num.isdigit():
             index = int(task_num) - 1
             if 0 <= index < len(tasks):
                 tasks.pop(index)
-                print('Task deleted!')
+                print('Task deleted.')
             else:
                 print('That task number does not exist.')
         else:
@@ -48,13 +48,13 @@ while True:
 
     #Quit
     elif choice == '3':
-        print('Goodbye!')
+        print('Goodbye.')
         break
 
     else:
-        print('Invalid option, please choose 1, 2, or 3.')
+        print('Invalid option, choose 1, 2 or 3 ONLY.')
 
     #Save list (txt file)
     with open('tasks.txt', 'w') as file:
         for task in tasks:
-            file.write(task + '\n')
+            file.write(f'{task}\n')
